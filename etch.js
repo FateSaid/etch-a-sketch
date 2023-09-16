@@ -29,9 +29,16 @@ function handleMouseEnter(event){
 event.target.style.backgroundColor = 'blue';
 }
 
+function createGrid(){
+    container.innerHTML = '';
+    
+    grid();
+    
+}
+
 grid();
 
-
+btn.addEventListener('click', createGrid);
 
 
     
