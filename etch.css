@@ -1,0 +1,26 @@
+div{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    
+    width: 550px;
+    margin:auto;
+    flex-wrap:wrap;
+    flex:1;
+    
+    
+}
+.rower{
+    
+    border:2px solid black;
+    height: 30px;
+    width: 30px;
+    display:inline-block;
+
+}
+
+.reset{
+    display:flex;
+    text-align:center;
+    margin:auto;
+}
