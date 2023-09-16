@@ -10,7 +10,7 @@ div{
     
     
 }
-.rower{
+.cell{
     
     border:2px solid black;
     height: 30px;
@@ -19,7 +19,7 @@ div{
 
 }
 
-.reset{
+button{
     display:flex;
     text-align:center;
     margin:auto;

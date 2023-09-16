@@ -1,47 +1,31 @@
-const container = document.createElement('div');
-let row;
+const container = document.createElement('container');
 document.body.appendChild(container);
-
-const btn = document.createElement('button');
-btn.textContent = 'Reset';
-btn.classList.add('reset');
-document.body.append(btn);
-
-
-function rows(){
-    for(let i = 0; i < 16; i++){
-        row = document.createElement('row');
-        row.classList.add('rower');
-        container.appendChild(row);
-        row.addEventListener('mouseenter', handleMouseEnter);
-    }
-
-}
-
-function grid(){
-    for(let i = 0; i < 16; i++){
-        rows();
-        row.addEventListener('mouseenter', handleMouseEnter);
-    }
-}
-
-function handleMouseEnter(event){
-event.target.style.backgroundColor = 'blue';
-}
 
 function createGrid(){
     container.innerHTML = '';
-    
-    grid();
-    
+    for(let i = 0; i < 16; i++){
+        const row = document.createElement('div');
+        row.classList.add('row');
+        for(let j = 0; j < 16; j++){
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.addEventListener('mouseenter',handleMouse )
+            row.appendChild(cell);
+        }
+        container.appendChild(row);
+    }
 }
 
-grid();
+function handleMouse(event){
+    event.target.style.backgroundColor = 'blue';
+}
+    
+const btn = document.createElement('button');
+btn.textContent = 'Reset';
+document.body.appendChild(btn);
 
 btn.addEventListener('click', createGrid);
 
-
-    
-
+createGrid();
 
 
