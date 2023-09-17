@@ -1,26 +1,25 @@
+.container{
+    display:flex;
+    
+    height:600px;
+    width:600px;
+    border:2px solid black;
+    margin:auto;
+
+}
+
 div{
     display:flex;
-    justify-content: center;
+    justify-content:center;
+    flex:1 1 auto;
+    border:2px solid red;
     flex-wrap:wrap;
-    
-    width: 550px;
-    margin:auto;
-    flex-wrap:wrap;
-    flex:1;
-    
-    
-}
-.cell{
-    
-    border:2px solid black;
-    height: 30px;
-    width: 30px;
-    display:inline-block;
-
+    width:50%;
+    height:auto;
 }
 
 button{
     display:flex;
-    text-align:center;
+    justify-content: center;
     margin:auto;
 }

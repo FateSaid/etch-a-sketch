@@ -1,12 +1,17 @@
 const container = document.createElement('container');
+container.classList.add('container');
 document.body.appendChild(container);
+
+
+
+let number = prompt('Enter a Number: ');
 
 function createGrid(){
     container.innerHTML = '';
-    for(let i = 0; i < 16; i++){
+    for(let i = 0; i < number; i++){
         const row = document.createElement('div');
         row.classList.add('row');
-        for(let j = 0; j < 16; j++){
+        for(let j = 0; j < number; j++){
             const cell = document.createElement('div');
             cell.classList.add('cell');
             cell.addEventListener('mouseenter',handleMouse )
@@ -27,5 +32,4 @@ document.body.appendChild(btn);
 btn.addEventListener('click', createGrid);
 
 createGrid();
-
 
