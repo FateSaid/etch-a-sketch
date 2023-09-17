@@ -2,12 +2,12 @@ const container = document.createElement('container');
 container.classList.add('container');
 document.body.appendChild(container);
 
-const userInput = document.createElement('button');
-userInput.classList.add('userInput');
-userInput.textContent = 'Enter Number';
-document.body.insertBefore(userInput, container);
+const userBtn = document.createElement('button');
+userBtn.classList.add('userBtn');
+userBtn.textContent = 'Enter Number';
+document.body.insertBefore(userBtn, container);
 
-userInput.addEventListener('click', ()=>{
+userBtn.addEventListener('click', ()=>{
     let number = prompt('Enter a Number: ');
     createGrid(number);
 
@@ -41,17 +41,21 @@ function handleMouse(event){
     event.target.style.backgroundColor = 'blue';
 }
     
-const clearButton = document.createElement('button');
-clearButton.textContent = 'Reset';
-document.body.appendChild(clearButton);
+const clearBtn = document.createElement('button');
+clearBtn.textContent = 'Reset';
+clearBtn.classList.add('resetBtn');
+document.body.appendChild(clearBtn);
 
-clearButton.addEventListener('click', () => {
+clearBtn.addEventListener('click', () => {
     const clear = document.querySelectorAll('.cell');
     clear.forEach(clear =>{
         clear.style.backgroundColor = 'white';
     });
 });
 
-
+const blueBtn = document.createElement('button');
+blueBtn.classList.add('blueBtn');
+blueBtn.textContent = 'blue';
+document.body.appendChild(blueBtn);
 
 
