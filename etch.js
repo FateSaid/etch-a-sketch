@@ -2,12 +2,20 @@ const container = document.createElement('container');
 container.classList.add('container');
 document.body.appendChild(container);
 
+const userInput = document.createElement('button');
+userInput.classList.add('userInput');
+userInput.textContent = 'Enter Number';
+document.body.insertBefore(userInput, container);
 
+userInput.addEventListener('click', ()=>{
+    createGrid();
+});
 
-let number = prompt('Enter a Number: ');
+ //
 
 function createGrid(){
     container.innerHTML = '';
+    let number = prompt('Enter a Number: ');
     for(let i = 0; i < number; i++){
         const row = document.createElement('div');
         row.classList.add('row');
@@ -31,5 +39,5 @@ document.body.appendChild(btn);
 
 btn.addEventListener('click', createGrid);
 
-createGrid();
+
 
