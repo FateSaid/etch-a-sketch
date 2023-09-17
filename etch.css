@@ -24,9 +24,10 @@ button{
     
 }
 
-p{
+h1{
     display:flex;
     justify-content: center;
+   
 }
 
 .containerBtn {

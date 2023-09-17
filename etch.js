@@ -1,3 +1,8 @@
+const title = document.createElement('h1');
+title.textContent = 'Etch a Sketch';
+document.body.appendChild(title);
+
+
 const container = document.createElement('container');
 container.classList.add('container');
 document.body.appendChild(container);
