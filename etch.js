@@ -13,14 +13,25 @@ userBtn.classList.add('userBtn');
 userBtn.textContent = 'Enter Number';
 document.body.insertBefore(userBtn, container);
 
-userBtn.addEventListener('click', ()=>{
-    let size = prompt('Enter a Number: ');
-    if(size > 100) return alert('Number is too big');
-    createGrid(size);
+const containerBtn = document.createElement('button');
+containerBtn.classList.add('containerBtn');
+document.body.appendChild(containerBtn);
+    
+const clearBtn = document.createElement('button');
+clearBtn.textContent = 'Reset';
+clearBtn.classList.add('resetBtn');
+containerBtn.appendChild(clearBtn);
 
-});
+const blueBtn = document.createElement('button');
+blueBtn.classList.add('blueBtn');
+blueBtn.textContent = 'blue';
+containerBtn.appendChild(blueBtn);
 
- //
+const redBtn = document.createElement('button');
+redBtn.classList.add('redBtn');
+redBtn.textContent = 'red';
+containerBtn.appendChild(redBtn);
+
 
 function createGrid(size){
     
@@ -47,15 +58,12 @@ let currentColor = 'black';
 
 
 
+userBtn.addEventListener('click', ()=>{
+    let size = prompt('Enter a Number: ');
+    if(size > 100) return alert('Number is too big');
+    createGrid(size);
 
-const containerBtn = document.createElement('button');
-containerBtn.classList.add('containerBtn');
-document.body.appendChild(containerBtn);
-    
-const clearBtn = document.createElement('button');
-clearBtn.textContent = 'Reset';
-clearBtn.classList.add('resetBtn');
-containerBtn.appendChild(clearBtn);
+});
 
 clearBtn.addEventListener('click', () => {
     const clear = document.querySelectorAll('.cell');
@@ -63,16 +71,6 @@ clearBtn.addEventListener('click', () => {
         clear.style.backgroundColor = 'lightgray';
     });
 });
-
-const blueBtn = document.createElement('button');
-blueBtn.classList.add('blueBtn');
-blueBtn.textContent = 'blue';
-containerBtn.appendChild(blueBtn);
-
-const redBtn = document.createElement('button');
-redBtn.classList.add('redBtn');
-redBtn.textContent = 'red';
-containerBtn.appendChild(redBtn);
 
 redBtn.addEventListener('click', ()=>{
     currentColor = 'red';
