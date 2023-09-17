@@ -1,5 +1,5 @@
 const title = document.createElement('h1');
-title.textContent = 'Etch a Sketch';
+title.textContent = 'Etch-a-Sketch';
 document.body.appendChild(title);
 
 
@@ -15,6 +15,7 @@ document.body.insertBefore(userBtn, container);
 
 userBtn.addEventListener('click', ()=>{
     let size = prompt('Enter a Number: ');
+    if(size > 100) return alert('Number is too big');
     createGrid(size);
 
 });
@@ -41,7 +42,7 @@ function createGrid(size){
     }
 }
 
-
+let currentColor = 'black';
 
 
 
