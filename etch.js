@@ -8,14 +8,18 @@ userInput.textContent = 'Enter Number';
 document.body.insertBefore(userInput, container);
 
 userInput.addEventListener('click', ()=>{
-    createGrid();
+    let number = prompt('Enter a Number: ');
+    createGrid(number);
+
 });
 
  //
 
-function createGrid(){
-    container.innerHTML = '';
-    let number = prompt('Enter a Number: ');
+function createGrid(number){
+    
+    
+    
+
     for(let i = 0; i < number; i++){
         const row = document.createElement('div');
         row.classList.add('row');
@@ -29,15 +33,25 @@ function createGrid(){
     }
 }
 
+
+
+
+
 function handleMouse(event){
     event.target.style.backgroundColor = 'blue';
 }
     
-const btn = document.createElement('button');
-btn.textContent = 'Reset';
-document.body.appendChild(btn);
+const clearButton = document.createElement('button');
+clearButton.textContent = 'Reset';
+document.body.appendChild(clearButton);
 
-btn.addEventListener('click', createGrid);
+clearButton.addEventListener('click', () => {
+    const clear = document.querySelectorAll('.cell');
+    clear.forEach(clear =>{
+        clear.style.backgroundColor = 'white';
+    });
+});
+
 
 
 
