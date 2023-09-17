@@ -1,6 +1,7 @@
 const container = document.createElement('container');
 container.classList.add('container');
 document.body.appendChild(container);
+container.style.backgroundColor = 'lightgray';
 
 const userBtn = document.createElement('button');
 userBtn.classList.add('userBtn');
@@ -8,25 +9,27 @@ userBtn.textContent = 'Enter Number';
 document.body.insertBefore(userBtn, container);
 
 userBtn.addEventListener('click', ()=>{
-    let number = prompt('Enter a Number: ');
-    createGrid(number);
+    let size = prompt('Enter a Number: ');
+    createGrid(size);
 
 });
 
  //
 
-function createGrid(number){
+function createGrid(size){
     
     container.innerHTML = '';
     
 
-    for(let i = 0; i < number; i++){
+    for(let i = 0; i < size; i++){
         const row = document.createElement('div');
         row.classList.add('row');
-        for(let j = 0; j < number; j++){
+        for(let j = 0; j < size; j++){
             const cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.addEventListener('mouseenter',handleMouse )
+            cell.addEventListener('mouseenter',(event)=>{
+                event.target.style.backgroundColor = currentColor;
+            } )
             row.appendChild(cell);
         }
         container.appendChild(row);
@@ -37,25 +40,40 @@ function createGrid(number){
 
 
 
-function handleMouse(event){
-    event.target.style.backgroundColor = 'blue';
-}
+
+
+const containerBtn = document.createElement('button');
+containerBtn.classList.add('containerBtn');
+document.body.appendChild(containerBtn);
     
 const clearBtn = document.createElement('button');
 clearBtn.textContent = 'Reset';
 clearBtn.classList.add('resetBtn');
-document.body.appendChild(clearBtn);
+containerBtn.appendChild(clearBtn);
 
 clearBtn.addEventListener('click', () => {
     const clear = document.querySelectorAll('.cell');
     clear.forEach(clear =>{
-        clear.style.backgroundColor = 'white';
+        clear.style.backgroundColor = 'lightgray';
     });
 });
 
 const blueBtn = document.createElement('button');
 blueBtn.classList.add('blueBtn');
 blueBtn.textContent = 'blue';
-document.body.appendChild(blueBtn);
+containerBtn.appendChild(blueBtn);
+
+const redBtn = document.createElement('button');
+redBtn.classList.add('redBtn');
+redBtn.textContent = 'red';
+containerBtn.appendChild(redBtn);
+
+redBtn.addEventListener('click', ()=>{
+    currentColor = 'red';
+});
+
+blueBtn.addEventListener('click', ()=>{
+    currentColor = 'blue';
+});
 
 

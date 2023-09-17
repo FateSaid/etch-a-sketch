@@ -23,3 +23,15 @@ button{
     margin:auto;
     
 }
+
+p{
+    display:flex;
+    justify-content: center;
+}
+
+.containerBtn {
+    display:flex;
+    height:auto;
+    width:auto;
+    padding:0;
+}
