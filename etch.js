@@ -17,7 +17,7 @@ userInput.addEventListener('click', ()=>{
 
 function createGrid(number){
     
-    
+    container.innerHTML = '';
     
 
     for(let i = 0; i < number; i++){
