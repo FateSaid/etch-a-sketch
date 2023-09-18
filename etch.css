@@ -8,7 +8,7 @@
 
 }
 
-div{
+.row, .cell{
     display:flex;
     justify-content:center;
     flex:1 1 auto;
@@ -21,6 +21,10 @@ div{
 button{
     display:flex;
     margin:auto;
+    font-size:12px;
+    font-family: 'Raedex Pro', sans-serif;
+    padding:0.5em 1em;
+    border-radius: 1em;
     
 }
 
@@ -32,7 +36,23 @@ h1{
 
 .containerBtn {
     display:flex;
-    height:auto;
-    width:auto;
-    padding:0;
+    justify-content: center;
+    
+    width: 300px;
+    margin:auto;
+}
+
+.redBtn{
+    background-color: red;
+    color:white;
+}
+
+.blueBtn{
+    background-color: blue;
+    color:white;
+}
+
+.blackBtn{
+    background-color:black;
+    color:white;
 }

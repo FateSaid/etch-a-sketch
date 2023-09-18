@@ -13,7 +13,7 @@ userBtn.classList.add('userBtn');
 userBtn.textContent = 'Enter Number';
 document.body.insertBefore(userBtn, container);
 
-const containerBtn = document.createElement('button');
+const containerBtn = document.createElement('div');
 containerBtn.classList.add('containerBtn');
 document.body.appendChild(containerBtn);
     
@@ -24,15 +24,26 @@ containerBtn.appendChild(clearBtn);
 
 const blueBtn = document.createElement('button');
 blueBtn.classList.add('blueBtn');
-blueBtn.textContent = 'blue';
+blueBtn.textContent = 'Blue';
 containerBtn.appendChild(blueBtn);
 
 const redBtn = document.createElement('button');
 redBtn.classList.add('redBtn');
-redBtn.textContent = 'red';
+redBtn.textContent = 'Red';
 containerBtn.appendChild(redBtn);
 
+const rainbowBtn = document.createElement('button');
+rainbowBtn.classList.add('rainbowBtn');
+rainbowBtn.textContent = 'RGB';
+containerBtn.appendChild(rainbowBtn);
 
+const blackBtn = document.createElement('button');
+blackBtn.classList.add('blackBtn');
+blackBtn.textContent = 'Black';
+containerBtn.appendChild(blackBtn);
+
+
+let currentColor = 'rainbow';
 function createGrid(size){
     
     container.innerHTML = '';
@@ -44,8 +55,13 @@ function createGrid(size){
         for(let j = 0; j < size; j++){
             const cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.addEventListener('mouseenter',(event)=>{
-                event.target.style.backgroundColor = currentColor;
+            cell.addEventListener('mouseenter',()=>{
+
+                if(currentColor === 'rainbow'){
+                    cell.style.backgroundColor = randomColor();
+                } else{
+                    cell.style.backgroundColor = currentColor;
+                }
             } )
             row.appendChild(cell);
         }
@@ -53,12 +69,26 @@ function createGrid(size){
     }
 }
 
-let currentColor = 'black';
+function getColor(){
+    return currentColor;
+}
+
+function randomColor(){
+    let red=Math.trunc((Math.random()*255+1));
+    let blue=Math.trunc((Math.random()*255+1));
+    let green=Math.trunc((Math.random()*255+1));
+    let color=`rgb(${red}, ${blue}, ${green})`
+    return color;
+}
 
 
+rainbowBtn.addEventListener('click', () =>{
+    currentColor = 'rainbow';
+});
 
 
 userBtn.addEventListener('click', ()=>{
+    
     let size = prompt('Enter a Number: ');
     if(size > 100) return alert('Number is too big');
     createGrid(size);
@@ -66,6 +96,7 @@ userBtn.addEventListener('click', ()=>{
 });
 
 clearBtn.addEventListener('click', () => {
+    
     const clear = document.querySelectorAll('.cell');
     clear.forEach(clear =>{
         clear.style.backgroundColor = 'lightgray';
@@ -73,11 +104,15 @@ clearBtn.addEventListener('click', () => {
 });
 
 redBtn.addEventListener('click', ()=>{
+    
     currentColor = 'red';
 });
 
 blueBtn.addEventListener('click', ()=>{
+    
     currentColor = 'blue';
 });
 
-
+blackBtn.addEventListener('click', () =>{
+    currentColor = 'black';
+})
